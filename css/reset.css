@@ -45,3 +45,29 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* 浏览器滚动条样式 */
+
+/* width */
+::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255,.1);
+	border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgba(201, 201, 202,.1);
+	border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	width: 8px;
+	height: 8px;
+	background: rgb(162, 162, 163);
+}

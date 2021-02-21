@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>网易云音乐</title>
@@ -8,6 +8,7 @@
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <script src="jquery-1.11.3.js"></script>
+    <script src="./js/asset.js"></script>
 </head>
 <body>
     <div id="header">
@@ -16,33 +17,33 @@
                 <li class="logo fl">
                     <a href="#"><span class="logo-img"></span><span>网易云音乐</span></a>
                 </li>  
-                <li class="fl">
+                <!-- <li class="fl">
                     <div class="state-change-btn">
                         <span class="icon_sprite back"></span>
                         <span class="sp"></span>
                         <span class="icon_sprite goahead"></span>
                     </div>
-                </li>
+                </li> -->
                 <li class="fl">
                     <div class="search">
-                        <div class="fl"><input type="text" value="搜索音乐，视频，歌词，电台"></div>
-                        <span class="icon_sprite search-btn"></span>
+                        <div class="fl"><input type="text" placeholder="搜索音乐，视频，歌词，电台"></div>
+                        <!-- <span class="icon_sprite search-btn"></span> -->
                     </div>
                 </li>
             </ul>
         </div>
         <div class="header-right">
-            <div class="fl user">
+            <div class=" user">
                 <ul>
                     <li class="fl user-inform"><span class="avatar"></span><span class="logn-state">未登录</span><span class="selection-inform"></span></li>
                     <li class="fl VIP-apply">开通VIP</li>
-                    <li class="fl skin">皮肤<input type="color" id="mycolor"></li>
+                    <li class="fl skin"><input type="color" id="mycolor"></li>
                     <li class="fl post comment-ico"><span class="post-num">2</span></li>
                     <li class="fl setting">设置</li>
                 </ul>
             </div>
             
-            <div class="fl controls">
+            <div class=" controls">
                 <li class="mini-btn fl">最小视窗</li>
                 <li class="min-btn fl">最小化</li>
                 <li class="max-btn fl">最大化</li>
@@ -53,9 +54,9 @@
     <div id="palyer">
         <div class="player-w">
             <div class="album-cover fl">
-                <div class="playerbar-sta">
+                <!-- <div class="playerbar-sta">
                     <div class="playerbar"></div>
-                </div>
+                </div> -->
                 <div class="album"><span class="albumcover song-img"></span></div>
                 <div class="userbtn">
                     <div class="fl"><i class="fa fa-heart-o"></i>喜欢</div>
@@ -72,20 +73,20 @@
                 </div>
                 <div class="song-info">
                     <span class="song-album"><a href="#"></a></span> 
-                    <span class="songer"><a href="#"></a></span>
+                    <span class="singer"><a href="#"></a></span>
                     <span class="song-sour"><a href="#"></a></span>
                 </div>
                 <div class="song-lyric"><div></div></div>
             </div>
             <div class="bgc-img song-img"></div>   
         </div> 
-        <div id="user-interact">
+        <!-- <div id="user-interact">
             <div class="comment fl">
                 <div class="comment-title"><a class="comment-title1" href="#">听友评论</a>(已有条<span>11111</span>评论)</div>
                 <div class="comment-input"></div>
             </div> 
             <div class="recommend"></div>
-        </div> 
+        </div>  -->
     </div> 
     <div id="player-control">
         <span class=" playerIcon songPrev"></span>
@@ -114,7 +115,7 @@
                         <tr>
                             <td><span class="wave"></span></td>
                             <td class="songlist-name">1</td>
-                            <td class="songlist-songer">1</td>
+                            <td class="songlist-singer">1</td>
                             <td class="songlist-time">1</td>
                         </tr>
                     </table>
@@ -181,7 +182,8 @@
         <div class="downloadClient">下载客户端 体验更多精彩内容</div>
    </div>
     <div class="songLyricOnDesk"><p></p><p></p></div>
-    <audio src="video/许嵩 - 清明雨上.mp3" id="myaudio"></audio>
-    <script src="js/index.js"></script>
+    <!-- <audio src="video/许嵩 - 清明雨上.mp3" id="myaudio"></audio> -->
+    <!-- <script src="js/indexJquery.js"></script> -->
+    <script src="./js/index.js"></script>
 </body>
 </html>

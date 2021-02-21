@@ -33,9 +33,9 @@ a{
     display:block;
     clear:both;
 }
-.header-left{
-    width:600px;
-}
+/* .header-left{
+    width:450px;
+} */
 .header-left>ul>li{
     height: 50px;
     display: flex;
@@ -125,12 +125,12 @@ a{
 }
 .header-right{
     margin:0 0 0 600px;
-    /* display: flex;
+    display: flex;
     justify-content: flex-end;
-    align-items: center; */
+    align-items: center;
     color: rgba(255,255,255,0.8);
 }
-.header-right ul::after{
+.header-right::after, ul::after{
     content:"";
     display:block;
     clear:both;
@@ -147,7 +147,7 @@ input[type="color"]{
     cursor: pointer;
 }
 .user{
-    margin:0 5px;
+    margin-right: 5px;
 }
 .avatar{
     display:inline-block;
@@ -199,9 +199,10 @@ input[type="color"]{
     margin-right: 5px;
 }
 .controls{
-    margin:0 5px;
+    margin-right: 5px;
 }
 #palyer{
+    min-height: 500px;
     width: 1050px;
     position: relative;
     top: 10px;
@@ -292,7 +293,7 @@ input[type="color"]{
 .userbtn{
     position: relative;
     top: 30px;
-    left: 50px;
+    left: 60px;
     height: 50px;
     /* border: 1px solid gray; */
     font-size: 14px;
@@ -303,6 +304,12 @@ input[type="color"]{
     padding: 3px 5px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+}
+.userbtn>div>i{
+    margin-right:2px;
 }
 .lyric{
     margin: 0px 20px 0 450px;
@@ -344,7 +351,7 @@ input[type="color"]{
     content:"专辑：";
     display:inline-block;    
 }
-.songer::before{
+.singer::before{
     content:"歌手：";
     display:inline-block;    
 }
@@ -643,7 +650,7 @@ input[type="color"]{
     width: 200px; 
     padding-left: 10px;
 }
-.songlist-songer{
+.songlist-singer{
     width: 100px;
 }
 .songlist-time{
@@ -883,4 +890,11 @@ input[type="color"]{
 .downloadClient:hover{
     cursor:pointer;
     background-color: #31c27c;
+}
+#mycolor{
+    border: none;
+    border-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.1);
+    outline: none;
+    margin:0 2px;
 }
