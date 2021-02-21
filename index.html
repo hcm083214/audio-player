@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网易云音乐</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="header-left fl">
+            <ul>
+                <li class="logo fl">
+                    <a href="#"><span class="logo-img"></span><span>网易云音乐</span></a>
+                </li>  
+                <li class="fl">
+                    <div class="state-change-btn">
+                        <span class="icon_sprite back"></span>
+                        <span class="sp"></span>
+                        <span class="icon_sprite goahead"></span>
+                    </div>
+                </li>
+                <li class="fl">
+                    <div class="search">
+                        <div class="fl"><input type="text" value="搜索音乐，视频，歌词，电台"></div>
+                        <span class="icon_sprite search-btn"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header-right">
+            <div class="fl user">
+                <ul>
+                    <li class="fl user-inform"><span class="avatar"></span><span class="logn-state">未登录</span><span class="selection-inform"></span></li>
+                    <li class="fl VIP-apply">开通VIP</li>
+                    <li class="fl skin">皮肤<input type="color" id="mycolor"></li>
+                    <li class="fl post comment-ico"><span class="post-num">2</span></li>
+                    <li class="fl setting">设置</li>
+                </ul>
+            </div>
+            
+            <div class="fl controls">
+                <li class="mini-btn fl">最小视窗</li>
+                <li class="min-btn fl">最小化</li>
+                <li class="max-btn fl">最大化</li>
+                <li class="quit-btn fl">关闭</li>
+            </div>
+        </div>          
+    </div>     
+    <div id="palyer">
+        <div class="player-w">
+            <div class="album-cover fl">
+                <div class="playerbar-sta">
+                    <div class="playerbar"></div>
+                </div>
+                <div class="album"><span class="albumcover song-img"></span></div>
+                <div class="userbtn">
+                    <div class="fl"><i class="fa fa-heart-o"></i>喜欢</div>
+                    <div class="fl"><i class="fa fa-plus-square-o"></i>收藏</div>
+                    <div class="fl"><i class="fa fa-download"></i>VIP下载</div>
+                    <div class="fl"><i class="fa fa-share-square-o"></i>分享</div>
+                </div>
+            </div>
+            <div class="lyric">
+                <div class="song">
+                    <span class="song-name"></span>
+                    <span class="song-mv icon_sprite"></span>
+                    <span class="song-tone icon_sprite"></span>
+                </div>
+                <div class="song-info">
+                    <span class="song-album"><a href="#"></a></span> 
+                    <span class="songer"><a href="#"></a></span>
+                    <span class="song-sour"><a href="#"></a></span>
+                </div>
+                <div class="song-lyric"><div></div></div>
+            </div>
+            <div class="bgc-img song-img"></div>   
+        </div> 
+        <div id="user-interact">
+            <div class="comment fl">
+                <div class="comment-title"><a class="comment-title1" href="#">听友评论</a>(已有条<span>11111</span>评论)</div>
+                <div class="comment-input"></div>
+            </div> 
+            <div class="recommend"></div>
+        </div> 
+    </div> 
+    <div id="player-control">
+        <span class=" playerIcon songPrev"></span>
+        <span class=" playerIcon songStop" id="myplay"></span>
+        <span class=" playerIcon songNext"></span>
+        <span class="song-time-state">00:00</span>
+        <div class="songState" style="width:400px">
+            <div class="songBarNow" style="width:0%"></div>
+            <span class="playerIcon songBarDot" style="left:-4px"></span>
+        </div> 
+        <span class="song-end-state">00:00</span>
+        <span class=" playerIcon songVolumn"></span>
+        <div class="songVolumnState">
+            <div class="song-volumn-Now"></div>
+            <span class="playerIcon song-volumn-Dot"></span>
+        </div>
+        <span class=" playerIcon songCycleOrder" id="mycycle"></span>
+        <span class=" playerIcon playerControlButtomOn" id="mylyricOndesk"></span>
+        <div class="song-list"><span>歌曲列表</span></div>
+        <div class="songlist">
+            <div class="songlist-header">
+                <div class="songlist-title">播放列表</div>
+                <div class="songlist-history">历史记录</div>
+                <div class="songlist-item">
+                    <table class="songlist-item-table">
+                        <tr>
+                            <td><span class="wave"></span></td>
+                            <td class="songlist-name">1</td>
+                            <td class="songlist-songer">1</td>
+                            <td class="songlist-time">1</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>     
+    </div> 
+    <div id="lognControl">
+        <div class="lognChoose">
+            <span>QQ登陆</span><span>微信登陆</span><span></span>
+        </div>
+        <div class="QQLogin">
+            <div class="qqLeft">
+                <!-- 快速登陆 -->
+                <div class="QQLoginQuick">
+                    <div class="QQLoginInput">
+                        <div>快速安全登陆</div>
+                        <div>请使用<a href=>QQ手机版</a>扫描二维码，<br>或点击头像授权登录。</div>
+                    </div>
+                    <div class="QQLoginUser">
+                        <img src="img/ptqrshow" alt="">
+                        <div class="user"><img src="img/g.jpg" alt=""><br><span>会痛的石头</span></div>
+                    </div>
+                    <div class="lognInform">
+                            <a href="#">帐号密码登录</a>
+                            <span>|</span>
+                            <a href="#"> 注册新帐号 </a>
+                            <span>|</span>
+                            <a href="#">意见反馈</a>
+                    </div>
+                </div>
+                 <!-- 账号密码登陆 -->
+                <div class="QQLoginSrc">
+                    <p>帐号密码登录</p>
+                    <p>推荐使用<a>快速安全登录</a>，防止盗号。</p>
+                    <div class="alertInform"></div>
+                    <form action="" method="get">
+                        <div><input type="text"><span>支持QQ号/邮箱/手机号登陆</span></div>
+                        <div><input type="password"><span>密码</span></div>
+                        <input type="button" value="授权并登录">
+                    </form>
+                    <div class="lognInform">
+                            <a href="#">忘记密码?</a>
+                            <span>|</span>
+                            <a href="#"> 注册新帐号 </a>
+                            <span>|</span>
+                            <a href="#">意见反馈</a>
+                    </div>
+                </div>
+            </div>
+            <div class="qqRight">
+                    <p><a href="#">QQ音乐</a> 将获得以下权限</p>
+                    <p><input type="checkbox"><span>全选</span></p>
+                    <p><input type="checkbox" checked="checked"><span>获得您的昵称、头像、姓名</span></p>
+                    <p>授权后表示您已同意 <a href="#">QQ登陆服务协议</a></p>
+            </div>
+        </div>
+        <div class="wechartLogin">
+            <div><img src="img/Wechart_login.jpg" alt=""></div>
+            <div>请使用微信扫描二维码登录</div>
+            <div>"QQ音乐"</div>
+            <div>QQ与微信帐号的音乐资产、付费特权不互通</div>
+        </div>
+        <div class="downloadClient">下载客户端 体验更多精彩内容</div>
+   </div>
+    <div class="songLyricOnDesk"><p></p><p></p></div>
+    <audio src="video/许嵩 - 清明雨上.mp3" id="myaudio"></audio>
+    <script src="js/index.js"></script>
+</body>
+</html>
