@@ -1,144 +1,170 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
-body{
+
+body {
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
 }
-ul,li{
-    list-style:none;
+
+ul,
+li {
+    list-style: none;
 }
-a{
-    text-decoration:none;
+
+a {
+    text-decoration: none;
 }
-.fl{
-    float:left;
+
+.fl {
+    float: left;
 }
-.fr{
-    float:right;
+
+.fr {
+    float: right;
 }
-#header{
-    width:1050px;
-    height:50px;
+
+#header {
+    width: 1050px;
+    height: 50px;
     position: relative;
     top: 10px;
     left: 20px;
-    border:1px solid gray;
-    background-color:#31c27c;
+    border: 1px solid gray;
+    background-color: #31c27c;
     /* background-image:linear-gradient(to right,#24ccaa,#31c27c); */
 }
-#header::after{
-    content:"";
-    display:block;
-    clear:both;
+
+#header::after {
+    content: "";
+    display: block;
+    clear: both;
 }
+
 /* .header-left{
     width:450px;
 } */
-.header-left>ul>li{
+.header-left>ul>li {
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.header-left>ul::after{
-    content:"";
-    display:block;
-    clear:both;
+
+.header-left>ul::after {
+    content: "";
+    display: block;
+    clear: both;
 }
-.logo{
-    margin:0 10px;
+
+.logo {
+    margin: 0 10px;
 }
-.logo a{
+
+.logo a {
     font-size: 20px;
-    color:#fff;
+    color: #fff;
 }
-.logo-img{
+
+.logo-img {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background: url("../img/logo.png") no-repeat;
     background-size: 20px 20px;
     display: inline-block;
-    margin:0 10px;
-    vertical-align:-3px;
+    margin: 0 10px;
+    vertical-align: -3px;
 }
-.state-change-btn{
-    margin:0 10px 0 30px;
-    cursor: pointer; 
+
+.state-change-btn {
+    margin: 0 10px 0 30px;
+    cursor: pointer;
     border-radius: 5px;
-    border:1px solid gray;
+    border: 1px solid gray;
     height: 20px;
-    width: 50px; 
-    line-height: 20px;  
-    
+    width: 50px;
+    line-height: 20px;
+
 }
-.icon_sprite{
+
+.icon_sprite {
     background: url("../img/icon_sprite.png");
 }
-.back{ 
-    display: inline-block; 
-    background-position:-58px -258px;
-    width:15px;
-    height:15px;
+
+.back {
+    display: inline-block;
+    background-position: -58px -258px;
+    width: 15px;
+    height: 15px;
     text-align: center;
     vertical-align: 3px;
     margin-left: 5px;
 }
-.sp{
+
+.sp {
     display: inline-block;
-    border-left:1px solid gray;
+    border-left: 1px solid gray;
     height: 20px;
 }
-.goahead{ 
-    display: inline-block; 
-    background-position:-38px -258px;
-    width:15px;
-    height:15px;
+
+.goahead {
+    display: inline-block;
+    background-position: -38px -258px;
+    width: 15px;
+    height: 15px;
     vertical-align: 3px;
     margin-left: 4px;
 }
-.search{
-    background:rgba(255,255,255,0.5);
+
+.search {
+    background: rgba(255, 255, 255, 0.5);
     height: 28px;
-    width:270px;
+    width: 270px;
     border-radius: 15px;
 }
-.search input{
-    background: rgba(255,255,255,0);
-    border:none;
+
+.search input {
+    background: rgba(255, 255, 255, 0);
+    border: none;
     height: 25px;
-    width:200px;
+    width: 200px;
     margin: 2px 15px;
     outline: none;
     opacity: 0.3;
 }
-.search-btn{
-    display: inline-block; 
-    background-position:-0px -260px;
-    width:25px;
-    height:25px;
+
+.search-btn {
+    display: inline-block;
+    background-position: -0px -260px;
+    width: 25px;
+    height: 25px;
     margin: 2px;
     cursor: pointer;
     opacity: 0.6;
 }
-.header-right{
-    margin:0 0 0 600px;
+
+.header-right {
+    margin: 0 0 0 600px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255, 255, 255, 0.8);
 }
-.header-right::after, ul::after{
-    content:"";
-    display:block;
-    clear:both;
+
+.header-right::after,
+ul::after {
+    content: "";
+    display: block;
+    clear: both;
 }
-input[type="color"]{  
+
+input[type="color"] {
     vertical-align: middle;
 }
-.header-right li{
+
+.header-right li {
     height: 50px;
     display: flex;
     justify-content: center;
@@ -146,42 +172,48 @@ input[type="color"]{
     margin-right: 5px;
     cursor: pointer;
 }
-.user{
+
+.user {
     margin-right: 5px;
 }
-.avatar{
-    display:inline-block;
-    background:url("../img/user.jpg") no-repeat;
+
+.avatar {
+    display: inline-block;
+    background: url("../img/user.jpg") no-repeat;
     /* background-position:-44px -44px; */
-    background-size:20px 20px;
+    background-size: 20px 20px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    margin-right: 5px; 
+    margin-right: 5px;
 }
-.selection-inform{
+
+.selection-inform {
     display: inline-block;
     width: 0;
     height: 0;
-    border-top: 5px solid rgba(255,255,255,0.5);
+    border-top: 5px solid rgba(255, 255, 255, 0.5);
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 5px solid transparent;
     margin: 5px 0 0 5px;
 }
-.comment-ico{
+
+.comment-ico {
     background: url("../img/comment.png");
 }
-.header-right .user .post{
+
+.header-right .user .post {
     background-position: -25px -100px;
     width: 25px;
     height: 20px;
     position: relative;
     top: 15px;
 }
-.post-num{
+
+.post-num {
     display: inline-block;
-    border: 1px solid rgba(255,255,255,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     position: absolute;
     top: -8px;
     left: 13px;
@@ -190,33 +222,38 @@ input[type="color"]{
     font-size: 8px;
     border-radius: 50%;
     background: #fff;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0, 0, 0, 0.5);
     text-align: center;
 }
-.spparation{
+
+.spparation {
     border: 1px solid gray;
     height: 25px;
     margin-right: 5px;
 }
-.controls{
+
+.controls {
     margin-right: 5px;
 }
-#palyer{
+
+#palyer {
     min-height: 500px;
     width: 1050px;
     position: relative;
     top: 10px;
     left: 20px;
     border: 1px solid gray;
-    max-height:500px;
-    overflow-y:scroll;
+    max-height: 500px;
+    overflow-y: scroll;
 }
-#palyer::after{
-    content:"";
+
+#palyer::after {
+    content: "";
     display: block;
     clear: both;
 }
-.bgc-img{
+
+.bgc-img {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -232,14 +269,17 @@ input[type="color"]{
     left: 0;
     z-index: -999;
 }
-.song-img{
+
+.song-img {
     background-image: url("../img/许嵩_Vae新歌+精选珍藏合辑_4.jpg");
 }
-.player-w{
-    width:950px;
+
+.player-w {
+    width: 950px;
     margin: 0 auto;
 }
-.playerbar-sta{
+
+.playerbar-sta {
     width: 14px;
     height: 14px;
     border-radius: 50%;
@@ -249,7 +289,8 @@ input[type="color"]{
     top: -7px;
     left: 180px;
 }
-.playerbar{
+
+.playerbar {
     position: absolute;
     left: 5px;
     width: 150px;
@@ -260,17 +301,19 @@ input[type="color"]{
     z-index: 3;
     border-radius: 10px;
 }
-.album{
+
+.album {
     position: relative;
     top: 20px;
     left: 60px;
     width: 300px;
     height: 300px;
-/*     border: 1px solid gray; */
+    /*     border: 1px solid gray; */
     background: url("../img/singlecover.png") no-repeat;
     background-size: 300px 300px;
 }
-.albumcover{
+
+.albumcover {
     position: absolute;
     left: 55px;
     top: 55px;
@@ -279,18 +322,22 @@ input[type="color"]{
     background-size: 195px 195px;
     border-radius: 50%;
 }
-.albumRotate{
+
+.albumRotate {
     animation: imgRotate 30s linear infinite;
 }
-@keyframes imgRotate{
-    from{
+
+@keyframes imgRotate {
+    from {
         transform: rotate(0deg);
     }
-    to{
+
+    to {
         transform: rotate(720deg);
     }
 }
-.userbtn{
+
+.userbtn {
     position: relative;
     top: 30px;
     left: 60px;
@@ -298,7 +345,8 @@ input[type="color"]{
     /* border: 1px solid gray; */
     font-size: 14px;
 }
-.userbtn>div{
+
+.userbtn>div {
     margin: 10px;
     border: 1px solid rgba(36, 35, 35, 0.5);
     padding: 3px 5px;
@@ -308,22 +356,27 @@ input[type="color"]{
     height: 20px;
     line-height: 20px;
 }
-.userbtn>div>i{
-    margin-right:2px;
+
+.userbtn>div>i {
+    margin-right: 2px;
 }
-.lyric{
+
+.lyric {
     margin: 0px 20px 0 450px;
     /* border: 1px solid gray; */
     height: 400px;
 }
-.song{
+
+.song {
     margin: 10px 0;
 }
-.song-name{
+
+.song-name {
     font-size: 20px;
     margin-right: 10px;
 }
-.song-mv{
+
+.song-mv {
     display: inline-block;
     background-position: -40px -280px;
     width: 33px;
@@ -332,7 +385,8 @@ input[type="color"]{
     margin-right: 10px;
     opacity: 0.8;
 }
-.song-tone{
+
+.song-tone {
     display: inline-block;
     background-position: -80px -280px;
     width: 35px;
@@ -340,87 +394,120 @@ input[type="color"]{
     vertical-align: -5px;
     opacity: 0.8;
 }
-.song-info>span{
-    margin:10px 10px 10px 0;
-    font-size:14px;
+
+.song-info>span {
+    margin: 10px 10px 10px 0;
+    font-size: 14px;
 }
-.song-info>span a{
-    color:#2e5da9;
+
+.song-info>span a {
+    color: #2e5da9;
 }
-.song-album::before{
-    content:"专辑：";
-    display:inline-block;    
+
+.song-album::before {
+    content: "专辑：";
+    display: inline-block;
 }
-.singer::before{
-    content:"歌手：";
-    display:inline-block;    
+
+.singer::before {
+    content: "歌手：";
+    display: inline-block;
 }
-.song-sour::before{
-    content:"来源：";
-    display:inline-block;    
+
+.song-sour::before {
+    content: "来源：";
+    display: inline-block;
 }
-.song-lyric{
+
+.song-lyric {
     border: 1px solid gray;
     height: 323px;
     overflow-y: scroll;
     margin: 10px 0 0 0;
 }
-.song-lyric-format{
-    font-size:20px;                                                                                                                  
+
+.song-lyric-format {
+    font-size: 20px;
     line-height: 1.5;
 }
-.song-lyric>div{
+
+.song-lyric .song-lyric-box {
     overflow: hidden;
+    transition: all .5s linear;
+    /* transform: translateY(100px); */
 }
-#user-interact{
+
+.song-lyric-item {
+    height: 25px;
+    line-height: 25px;
+    margin-left: 5px;
+    text-align: center;
+    font-size: 15px;
+    transition: all .5s linear;
+    color: rgba(0, 0, 0, 1);
+}
+.song-lyric-item-active{
+    color: rgba(236, 53, 53, 0.7);
+    font-size: 20px;
+}
+
+#user-interact {
     margin: 40px auto;
     width: 950px;
     /* border: 1px solid gray; */
     max-height: 800px;
 }
-#user-interact::after{
-    content:"";
+
+#user-interact::after {
+    content: "";
     display: inline-block;
     clear: both;
 }
-.comment{
+
+.comment {
     /* border: 1px solid gray; */
     margin: 0 0px 0px 55px;
 }
-.comment-title{
-    border-bottom: 1px solid rgba(0,0,0,0.5);
+
+.comment-title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     width: 550px;
     font-size: 12px;
-    color: rgba(0,0,0,0.6);
+    color: rgba(0, 0, 0, 0.6);
     padding: 5px 5px;
 }
-.comment-title a{
+
+.comment-title a {
     font-size: 18px;
-    color: rgba(0,0,0,1);
+    color: rgba(0, 0, 0, 1);
     margin-right: 10px;
     opacity: 1;
 }
-.recommend{
+
+.recommend {
     margin: 0 0 0 650px;
     /* border: 1px solid gray; */
 }
-#player-control{
-    width:1050px;
-    height:50px;
+
+#player-control {
+    width: 1050px;
+    height: 50px;
     position: relative;
     top: 10px;
     left: 20px;
-    border:1px solid gray;
-    background-color:#31c27c;
+    border: 1px solid gray;
+    background-color: #31c27c;
     /* background-image:linear-gradient(to right,#24ccaa,#31c27c); */
 }
-.playerIcon{
-    background:url("../img/player.png");
-    position:absolute;
-    opacity:0.7;
+
+.playerIcon {
+    background: url("../img/player.png");
+    position: absolute;
+    opacity: 0.7;
     cursor: pointer;
 }
-.songPrev{
+
+.songPrev {
     top: 15px;
     left: 35px;
     width: 19px;
@@ -429,7 +516,8 @@ input[type="color"]{
     cursor: pointer;
     display: inline-block;
 }
-.songStop{
+
+.songStop {
     top: 11px;
     left: 80px;
     width: 21px;
@@ -438,7 +526,8 @@ input[type="color"]{
     cursor: pointer;
     display: inline-block;
 }
-.songStart{
+
+.songStart {
     top: 11px;
     left: 80px;
     width: 21px;
@@ -446,7 +535,8 @@ input[type="color"]{
     background-position: -28px 0;
     cursor: pointer;
 }
-.songNext{
+
+.songNext {
     top: 15px;
     left: 125px;
     width: 19px;
@@ -455,33 +545,37 @@ input[type="color"]{
     cursor: pointer;
     display: inline-block;
 }
-.song-time-state{
-    position:absolute;
+
+.song-time-state {
+    position: absolute;
     top: 20px;
     left: 170px;
     display: inline-block;
 }
-.songState{
-    position:absolute;
+
+.songState {
+    position: absolute;
     top: 25px;
     left: 220px;
     height: 2px;
     width: 400px;
-    opacity:0.7;
-    background-color:#fff;
-    opacity:0.7;
+    opacity: 0.7;
+    background-color: #fff;
+    opacity: 0.7;
     cursor: pointer;
 
 }
-.songBarNow{
-    position:absolute;
-    top:0px;
-    left:0;
-    background:gray;
-    height:2px;
+
+.songBarNow {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    background: gray;
+    height: 2px;
     display: inline-block;
 }
-.songBarDot{
+
+.songBarDot {
     top: -4px;
     left: -4px;
     width: 10px;
@@ -492,12 +586,14 @@ input[type="color"]{
     cursor: pointer;
     display: inline-block;
 }
-.song-end-state{
-    position:absolute;
+
+.song-end-state {
+    position: absolute;
     top: 20px;
     left: 640px;
 }
-.songVolumn{
+
+.songVolumn {
     top: 15px;
     right: 330px;
     width: 26px;
@@ -505,28 +601,31 @@ input[type="color"]{
     background-position: 0 -144px;
     display: inline-block;
 }
-.songVolumnState{
-    position:absolute;
+
+.songVolumnState {
+    position: absolute;
     top: 25px;
     right: 235px;
     height: 2px;
     width: 85px;
-    opacity:0.7;
-    background-color:#fff;
-    opacity:0.7;
+    opacity: 0.7;
+    background-color: #fff;
+    opacity: 0.7;
     cursor: pointer;
     display: inline-block;
 }
-.song-volumn-Now{
-    position:absolute;
-    top:0px;
-    left:0;
-    background:gray;
-    width:10%;
-    height:2px;
+
+.song-volumn-Now {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    background: gray;
+    width: 10%;
+    height: 2px;
     display: inline-block;
 }
-.song-volumn-Dot{
+
+.song-volumn-Dot {
     top: -4px;
     left: -4px;
     width: 10px;
@@ -537,7 +636,8 @@ input[type="color"]{
     cursor: pointer;
     display: inline-block;
 }
-.songLover{
+
+.songLover {
     top: 15px;
     right: 190px;
     width: 23px;
@@ -546,28 +646,32 @@ input[type="color"]{
     cursor: pointer;
     display: inline-block;
 }
-.songCycleOrder{
+
+.songCycleOrder {
     top: 15px;
     right: 190px;
     width: 26px;
     height: 25px;
     background-position: 0 -205px;
 }
-.songCycleOnly{
+
+.songCycleOnly {
     top: 15px;
     right: 190px;
     width: 26px;
     height: 25px;
     background-position: 0 -232px;
 }
-.songCycleRandom{
+
+.songCycleRandom {
     top: 15px;
     right: 190px;
     width: 26px;
     height: 22px;
     background-position: 0 -74px;
 }
-.playerControlButtomOff{
+
+.playerControlButtomOff {
     top: 11px;
     right: 100px;
     width: 74px;
@@ -576,7 +680,8 @@ input[type="color"]{
     cursor: pointer;
     display: inline-block;
 }
-.playerControlButtomOn{
+
+.playerControlButtomOn {
     top: 11px;
     right: 100px;
     width: 74px;
@@ -585,13 +690,15 @@ input[type="color"]{
     cursor: pointer;
     display: inline-block;
 }
-.song-list{
+
+.song-list {
     position: absolute;
     top: 15px;
     right: 35px;
     cursor: pointer;
 }
-.songlist{
+
+.songlist {
     position: absolute;
     bottom: 50px;
     right: 0px;
@@ -603,15 +710,18 @@ input[type="color"]{
     color: #fff;
     display: none;
 }
-.songlist-header{
+
+.songlist-header {
     height: 42px;
     background-color: rgba(0, 0, 0, 0.1);
 }
-.songlist-header>div{ 
+
+.songlist-header>div {
     position: absolute;
     cursor: pointer;
 }
-.songlist-title{
+
+.songlist-title {
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -624,7 +734,8 @@ input[type="color"]{
     width: 50px;
     padding: 0 5px;
 }
-.songlist-history{
+
+.songlist-history {
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -637,246 +748,294 @@ input[type="color"]{
     width: 50px;
     padding: 0 5px;
 }
-.songlist-item{
+
+.songlist-item {
     margin-top: 42px;
 }
-.wave{
-    width: 10px;  
+
+.wave {
+    width: 10px;
     height: 10px;
-    background:url("../img/wave.gif") no-repeat;
-    display:none;
+    background: url("../img/wave.gif") no-repeat;
+    display: none;
 }
-.songlist-name{
-    width: 200px; 
+
+.songlist-name {
+    width: 200px;
     padding-left: 10px;
 }
-.songlist-singer{
+
+.songlist-singer {
     width: 100px;
 }
-.songlist-time{
+
+.songlist-time {
     width: 50px;
     cursor: auto;
 }
-.songLyricOnDesk{
+
+.songLyricOnDesk {
     margin: 20px 300px;
     font-size: 16px;
     line-height: 1.5;
 }
+
 /* <!--  登陆界面 --> */
-#lognControl{
-    position:fixed;
-    top:50%;
-    left:50%;
-    margin:-243px 0 0 -352px;
-    width:700px;
-    height:486px;
-    background:#fff;
-    visibility:hidden;
-    color:#000;
-    z-index:9;
+#lognControl {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -243px 0 0 -352px;
+    width: 700px;
+    height: 486px;
+    background: #fff;
+    visibility: hidden;
+    color: #000;
+    z-index: 9;
 }
-.lognChoose{
-    height:12%;
-    border-bottom:1px solid #F2F2F2;
+
+.lognChoose {
+    height: 12%;
+    border-bottom: 1px solid #F2F2F2;
 }
-.lognChoose span{
-    position:absolute;
+
+.lognChoose span {
+    position: absolute;
 }
-.lognChoose span:first-child{
-    top:20px;
-    left:230px;
-    color:#2CAF6F;
-    cursor:pointer;
+
+.lognChoose span:first-child {
+    top: 20px;
+    left: 230px;
+    color: #2CAF6F;
+    cursor: pointer;
 }
-.lognChoose span:nth-child(2){
-    top:20px;
-    left:405px;
-    cursor:pointer;
+
+.lognChoose span:nth-child(2) {
+    top: 20px;
+    left: 405px;
+    cursor: pointer;
 }
-.lognChoose span:last-child{
-    top:10px;
-    right:10px;
+
+.lognChoose span:last-child {
+    top: 10px;
+    right: 10px;
     display: inline-block;
     width: 12px;
     height: 12px;
-    background:url("../img/icon_popup.png");
+    background: url("../img/icon_popup.png");
     background-position: 0 -200px;
 }
-.QQLogin{
+
+.QQLogin {
     height: 65%;
     position: relative;
     /* display:none; */
 }
-.qqLeft{
+
+.qqLeft {
     position: absolute;
     text-align: center;
-    width:60%;
+    width: 60%;
     height: 100%;
-    border-right:1px dotted #D3D3D3;
+    border-right: 1px dotted #D3D3D3;
     /*display:flex;
     justify-content:center;
     align-items:center; */
 }
-.QQLoginQuick{
+
+.QQLoginQuick {
     /* display:none; */
-    height:70%;
+    height: 70%;
 }
-.QQLoginInput{
+
+.QQLoginInput {
     text-align: center;
 }
-.QQLogin .QQLoginInput div:first-child{
-    margin:10px 0;
-    font-size:20px;
-    color:#000;
+
+.QQLogin .QQLoginInput div:first-child {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #000;
 }
-.QQLoginInput div{
-    color:#666;
-    font-size:16px;
+
+.QQLoginInput div {
+    color: #666;
+    font-size: 16px;
 }
-.QQLogin a{
-    color:#3481cf;
+
+.QQLogin a {
+    color: #3481cf;
 }
-.QQLoginUser{
-    margin:50px 0;
+
+.QQLoginUser {
+    margin: 50px 0;
 }
-.QQLoginUser img{
-    border:1px solid #D3D3D3;
-    width:84px;
+
+.QQLoginUser img {
+    border: 1px solid #D3D3D3;
+    width: 84px;
     height: 84px;
 }
-.QQLoginUser div{
-    display:inline-block;
+
+.QQLoginUser div {
+    display: inline-block;
     position: relative;
-    cursor:pointer;
+    cursor: pointer;
 }
-.QQLoginUser .user img{
-    display:inline-block;
-    box-shadow:0 0 5px rgb(29, 129, 223);  
+
+.QQLoginUser .user img {
+    display: inline-block;
+    box-shadow: 0 0 5px rgb(29, 129, 223);
 }
-.QQLoginUser .user span{
-    color:#666; 
+
+.QQLoginUser .user span {
+    color: #666;
     position: absolute;
-    top:95px;
-    left:10px;
-    font-size:12px;
+    top: 95px;
+    left: 10px;
+    font-size: 12px;
 }
-.lognInform{
-    text-align:right;
-    margin:0 45px 0 0;
+
+.lognInform {
+    text-align: right;
+    margin: 0 45px 0 0;
 }
-.lognInform a{
-    color:#666;
-    font-size:12px;
+
+.lognInform a {
+    color: #666;
+    font-size: 12px;
 }
-.lognInform a:hover{
-    text-decoration:underline ;
+
+.lognInform a:hover {
+    text-decoration: underline;
 }
-.lognInform span{
-    color:#BFBFBF;
-    font-size:12px;
-    margin:0 5px;
+
+.lognInform span {
+    color: #BFBFBF;
+    font-size: 12px;
+    margin: 0 5px;
 }
-.QQLoginSrc{
+
+.QQLoginSrc {
     text-align: center;
-    height:70%;
-    display:none;
+    height: 70%;
+    display: none;
 }
-.QQLoginSrc>p:first-child{
-    font-size:16px;
-    color:#333;
-    height:38px;
-    line-height:38px;
-    font-weight:bold;
-    margin:10px 0;
+
+.QQLoginSrc>p:first-child {
+    font-size: 16px;
+    color: #333;
+    height: 38px;
+    line-height: 38px;
+    font-weight: bold;
+    margin: 10px 0;
 }
-.QQLoginSrc>p:nth-child(2){
-    font-size:16px;
-    color:#666;
-    height:21px;
-    line-height:21px;
-    margin:10px 0 30px 0;
+
+.QQLoginSrc>p:nth-child(2) {
+    font-size: 16px;
+    color: #666;
+    height: 21px;
+    line-height: 21px;
+    margin: 10px 0 30px 0;
 }
-.QQLoginSrc>p:nth-child(2)>a{
-    cursor:pointer;
+
+.QQLoginSrc>p:nth-child(2)>a {
+    cursor: pointer;
 }
-.QQLoginSrc .alertInform{
+
+.QQLoginSrc .alertInform {
     line-height: 18px;
     color: #ff3b30;
 }
-.QQLoginSrc>form>div{
-    position:relative;
-    height:42px;
-    margin:10px 0;
+
+.QQLoginSrc>form>div {
+    position: relative;
+    height: 42px;
+    margin: 10px 0;
 }
-.QQLoginSrc>form input{
-    height:38px;
-    width:268px;  
-    z-index: 9; 
-    border:1px solid rgba(17, 17, 17, 0.3);
+
+.QQLoginSrc>form input {
+    height: 38px;
+    width: 268px;
+    z-index: 9;
+    border: 1px solid rgba(17, 17, 17, 0.3);
 }
-.QQLoginSrc>form span{
-    position:absolute;
-    top:12px;
-    left:90px;
-    opacity:0.3;
+
+.QQLoginSrc>form span {
+    position: absolute;
+    top: 12px;
+    left: 90px;
+    opacity: 0.3;
 }
-.QQLoginSrc>form input:nth-child(3){
-    height:40px;
+
+.QQLoginSrc>form input:nth-child(3) {
+    height: 40px;
     line-height: 35px;
     border: none;
     font-size: 17px;
     font-weight: 400;
     color: #fff;
-    cursor:pointer;
+    cursor: pointer;
     background-color: #86CE2F;
-    margin:0 0 30px 0;
+    margin: 0 0 30px 0;
 }
-.qqRight{
-    position:absolute;
-    left:60%;
-    margin:27px 0 0 27px;
-    font-size:12px;
-    color:#555;
+
+.qqRight {
+    position: absolute;
+    left: 60%;
+    margin: 27px 0 0 27px;
+    font-size: 12px;
+    color: #555;
 }
-.qqRight p:nth-child(1){
-    border-top:1px dotted #D3D3D3;
-    height:40px;
-    line-height:40px; 
+
+.qqRight p:nth-child(1) {
+    border-top: 1px dotted #D3D3D3;
+    height: 40px;
+    line-height: 40px;
 }
-.qqRight span{
-    margin:0 0 0 5px;
+
+.qqRight span {
+    margin: 0 0 0 5px;
 }
-.qqRight p:nth-child(2),p:nth-child(3){
-    border-top:1px dotted #D3D3D3;
-    height:30px;
-    line-height:30px;
-    color:#666;
+
+.qqRight p:nth-child(2),
+.qqRight p:nth-child(3) {
+    border-top: 1px dotted #D3D3D3;
+    height: 30px;
+    line-height: 30px;
+    color: #666;
 }
-.qqRight p:nth-child(4){
-    margin:30px 0 0 0;
+
+.qqRight p:nth-child(4) {
+    margin: 30px 0 0 0;
 }
-.wechartLogin{
-    display:none;
-    text-align:center;
-    font-size:13px;
-    color:#999;
+
+.wechartLogin {
+    display: none;
+    text-align: center;
+    font-size: 13px;
+    color: #999;
 }
-.wechartLogin img{
+
+.wechartLogin img {
     width: 160px;
     height: 160px;
-    margin:40px 0 10px 0;
+    margin: 40px 0 10px 0;
 }
-.wechartLogin div{
-    margin:10px 0;
+
+.wechartLogin div {
+    margin: 10px 0;
 }
-.wechartLogin div:nth-child(2){
-    color:#373737;
+
+.wechartLogin div:nth-child(2) {
+    color: #373737;
 }
-.downloadClient{
-    position:absolute;
-    bottom:40px;
-    left:200px;
-    text-align:center;
+
+.downloadClient {
+    position: absolute;
+    bottom: 40px;
+    left: 200px;
+    text-align: center;
     display: inline-block;
     padding: 0 30px;
     height: 40px;
@@ -885,16 +1044,18 @@ input[type="color"]{
     color: #fff;
     border-radius: 20px;
     background-color: #31c27c;
-    background-image: linear-gradient(to right,#24ccaa,#31c27c);
+    background-image: linear-gradient(to right, #24ccaa, #31c27c);
 }
-.downloadClient:hover{
-    cursor:pointer;
+
+.downloadClient:hover {
+    cursor: pointer;
     background-color: #31c27c;
 }
-#mycolor{
+
+#mycolor {
     border: none;
     border-color: rgba(0, 0, 0, 0.1);
     color: rgba(0, 0, 0, 0.1);
     outline: none;
-    margin:0 2px;
+    margin: 0 2px;
 }

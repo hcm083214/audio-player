@@ -61,7 +61,7 @@ table {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: rgba(201, 201, 202,.1);
+	background: rgba(162, 162, 163,.5);
 	border-radius: 8px;
 }
 
