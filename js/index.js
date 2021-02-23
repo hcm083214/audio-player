@@ -3,7 +3,7 @@
  * @Date: 2021-02-21 23:20:42
 <<<<<<< Updated upstream
 <<<<<<< HEAD
- * @LastEditTime: 2021-02-24 00:05:31
+ * @LastEditTime: 2021-02-24 00:24:46
 =======
  * @LastEditTime: 2021-02-24 00:00:39
 >>>>>>> gh-pages
@@ -73,15 +73,16 @@ function changePlayMode() {
 }
 
 function playerHandle() {
+    const play = control.play;
     control.isPlay ? audioFile.file.play() : audioFile.file.pause();
     if (control.isPlay) {
-        control.play.classList.remove('songStop');
-        control.play.classList.add('songStart');
+        play.classList.remove('songStop');
+        play.classList.add('songStart');
         control.albumCover.classList.add('albumRotate');
         control.albumCover.style.animationPlayState = 'running';
     } else {
-        control.play.classList.add('songStop');
-        control.play.classList.remove('songStart');
+        play.classList.add('songStop');
+        play.classList.remove('songStart');
         control.albumCover.style.animationPlayState = 'paused';
     }
 }
