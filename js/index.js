@@ -1,7 +1,7 @@
 /*
  * @Author: 黄灿民
  * @Date: 2021-02-21 23:20:42
- * @LastEditTime: 2021-02-23 23:11:08
+ * @LastEditTime: 2021-02-23 23:50:35
  * @LastEditors: 黄灿民
  * @Description: 
  * @FilePath: \05.网易云音乐\js\index.js
@@ -192,28 +192,11 @@ function getOffsetLeft(e) {
 function drag(fragBox, wrap) {
     const wrapWidth = wrap.offsetWidth;
     const wrapLeft = getOffsetLeft(wrap);
-    const audio = audioFile.file;
-    const duration =audioFile.duration;
+
+
     function dragMove(e) {
         let disX = e.pageX - wrapLeft;
-        let dotPos;
-        let barPos;
-
-        if (disX < 0) {
-            dotPos = -4;
-            barPos = 0;
-            audio.currentTime = 0;
-        } else if (disX > 0 && disX < wrapWidth) {
-            dotPos = disX;
-            barPos = 100 * (disX/wrapWidth);
-            audio.currentTime = duration * (disX/wrapWidth);
-        } else {
-            dotPos = wrapWidth-4;
-            barPos = 100;
-            audio.currentTime = duration;
-        }
-        control.progressDot.style.left = `${dotPos}px`;
-        control.progressBar.style.width = `${barPos}%`;
+        changeProgressBarPos(disX, wrapWidth)
     }
     fragBox.addEventListener('mousedown', () => {
         fragBox.style.width = `14px`;
@@ -231,10 +214,43 @@ function drag(fragBox, wrap) {
 
 }
 
-function adjustProgress() {
+function changeProgressBarPos(disX, wrapWidth) {
+    const duration = audioFile.duration;
+    const audio = audioFile.file;
+    let dotPos
+    let barPos
+
+    if (disX < 0) {
+        dotPos = -4
+        barPos = 0
+        audio.currentTime = 0
+    } else if (disX > 0 && disX < wrapWidth) {
+        dotPos = disX
+        barPos = 100 * (disX / wrapWidth)
+        audio.currentTime = duration * (disX / wrapWidth)
+    } else {
+        dotPos = wrapWidth - 4
+        barPos = 100
+        audio.currentTime = duration
+    }
+    control.progressDot.style.left = `${dotPos}px`
+    control.progressBar.style.width = `${barPos}%`
+}
+
+function adjustProgressByDrag() {
     const fragBox = control.progressDot;
     const progressWrap = control.progressWrap
     drag(fragBox, progressWrap)
+}
+
+function adjustProgressByClick(e) {
+
+    const wrap = control.progressWrap;
+    const wrapWidth = wrap.offsetWidth;
+    const wrapLeft = getOffsetLeft(wrap);
+    const disX = e.pageX - wrapLeft;
+    changeProgressBarPos(disX, wrapWidth)
+    console.log("🚀 ~ file: index.js ~ line 241 ~ adjustProgressByClick ~ e", e.pageX, disX)
 }
 
 addAudioFile(songList);
@@ -245,13 +261,14 @@ function init() {
 // init();
 audioFile.file.addEventListener('loadeddata', init);
 
-control.play.addEventListener('click',()=>{
+control.play.addEventListener('click', () => {
     control.isPlay = !control.isPlay;
     playerHandle();
-} );
+});
 control.mode.addEventListener('click', changePlayMode);
 control.prev.addEventListener('click', prevHandle);
 control.next.addEventListener('click', nextHandle);
 audioFile.file.addEventListener('timeupdate', lyricAndProgressMove);
-control.progressDot.addEventListener('click', adjustProgress);
+control.progressDot.addEventListener('click', adjustProgressByDrag);
 audioFile.file.addEventListener('ended', nextHandle);
+control.progressWrap.addEventListener('click', adjustProgressByClick)
