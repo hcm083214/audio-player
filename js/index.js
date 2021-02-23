@@ -1,7 +1,11 @@
 /*
  * @Author: 黄灿民
  * @Date: 2021-02-21 23:20:42
- * @LastEditTime: 2021-02-23 23:50:35
+<<<<<<< Updated upstream
+ * @LastEditTime: 2021-02-24 00:00:39
+=======
+ * @LastEditTime: 2021-02-23 23:52:55
+>>>>>>> Stashed changes
  * @LastEditors: 黄灿民
  * @Description: 
  * @FilePath: \05.网易云音乐\js\index.js
@@ -193,7 +197,6 @@ function drag(fragBox, wrap) {
     const wrapWidth = wrap.offsetWidth;
     const wrapLeft = getOffsetLeft(wrap);
 
-
     function dragMove(e) {
         let disX = e.pageX - wrapLeft;
         changeProgressBarPos(disX, wrapWidth)
@@ -215,8 +218,8 @@ function drag(fragBox, wrap) {
 }
 
 function changeProgressBarPos(disX, wrapWidth) {
-    const duration = audioFile.duration;
-    const audio = audioFile.file;
+    const audio = audioFile.file
+    const duration = audioFile.duration
     let dotPos
     let barPos
 
@@ -250,7 +253,6 @@ function adjustProgressByClick(e) {
     const wrapLeft = getOffsetLeft(wrap);
     const disX = e.pageX - wrapLeft;
     changeProgressBarPos(disX, wrapWidth)
-    console.log("🚀 ~ file: index.js ~ line 241 ~ adjustProgressByClick ~ e", e.pageX, disX)
 }
 
 addAudioFile(songList);
@@ -261,10 +263,10 @@ function init() {
 // init();
 audioFile.file.addEventListener('loadeddata', init);
 
-control.play.addEventListener('click', () => {
+control.play.addEventListener('click',()=>{
     control.isPlay = !control.isPlay;
     playerHandle();
-});
+} );
 control.mode.addEventListener('click', changePlayMode);
 control.prev.addEventListener('click', prevHandle);
 control.next.addEventListener('click', nextHandle);
