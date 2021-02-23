@@ -1,7 +1,7 @@
 /*
  * @Author: 黄灿民
  * @Date: 2021-02-21 23:20:42
- * @LastEditTime: 2021-02-23 21:52:11
+ * @LastEditTime: 2021-02-23 23:11:08
  * @LastEditors: 黄灿民
  * @Description: 
  * @FilePath: \05.网易云音乐\js\index.js
@@ -76,7 +76,6 @@ function playerHandle() {
         control.play.classList.remove('songStart');
         control.albumCover.style.animationPlayState = 'paused';
     }
-    control.isPlay = !control.isPlay;
 }
 
 function showLyric(songList, lrcs, controlIndex = control.index) {
@@ -244,11 +243,15 @@ function init() {
     playerHandle();
 }
 // init();
-audioFile.file.addEventListener('canplaythrough', init);
+audioFile.file.addEventListener('loadeddata', init);
 
-control.play.addEventListener('click', playerHandle);
+control.play.addEventListener('click',()=>{
+    control.isPlay = !control.isPlay;
+    playerHandle();
+} );
 control.mode.addEventListener('click', changePlayMode);
 control.prev.addEventListener('click', prevHandle);
 control.next.addEventListener('click', nextHandle);
 audioFile.file.addEventListener('timeupdate', lyricAndProgressMove);
 control.progressDot.addEventListener('click', adjustProgress);
+audioFile.file.addEventListener('ended', nextHandle);
