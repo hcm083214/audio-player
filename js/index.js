@@ -1,7 +1,11 @@
 /*
  * @Author: 黄灿民
  * @Date: 2021-02-21 23:20:42
+<<<<<<< Updated upstream
  * @LastEditTime: 2021-02-23 23:11:08
+=======
+ * @LastEditTime: 2021-02-23 23:52:55
+>>>>>>> Stashed changes
  * @LastEditors: 黄灿民
  * @Description: 
  * @FilePath: \05.网易云音乐\js\index.js
@@ -237,6 +241,18 @@ function adjustProgress() {
     drag(fragBox, progressWrap)
 }
 
+<<<<<<< Updated upstream
+=======
+function adjustProgressByClick(e) {
+
+    const wrap = control.progressWrap;
+    const wrapWidth = wrap.offsetWidth;
+    const wrapLeft = getOffsetLeft(wrap);
+    const disX = e.pageX - wrapLeft;
+    changeProgressBarPos(disX, wrapWidth)
+}
+
+>>>>>>> Stashed changes
 addAudioFile(songList);
 function init() {
     showLyric(songList, lrcs);
