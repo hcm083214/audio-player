@@ -578,14 +578,22 @@ input[type="color"] {
 .songBarDot {
     top: -4px;
     left: -4px;
+    position: absolute;
     width: 10px;
     height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
     background-position: 0 -170px;
     opacity: 1;
     filter: none;
     cursor: pointer;
     display: inline-block;
 }
+/* .songBarDot:hover{
+    width: 14px;
+    height: 14px;
+    top:-7px
+} */
 
 .song-end-state {
     position: absolute;

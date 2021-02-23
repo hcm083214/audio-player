@@ -1,7 +1,7 @@
 /*
  * @Author: 黄灿民
  * @Date: 2021-02-21 23:20:42
- * @LastEditTime: 2021-02-23 00:35:27
+ * @LastEditTime: 2021-02-23 21:52:11
  * @LastEditors: 黄灿民
  * @Description: 
  * @FilePath: \05.网易云音乐\js\index.js
@@ -43,13 +43,14 @@ const songInfo = {
     singer: document.querySelector('.singer'),
     source: document.querySelector('.song-sour'),
     lyric: document.querySelector('.song-lyric-box'),
+    lyricWrap: document.querySelector('.song-lyric'),
     albumCover: document.querySelector('.albumcover'),
     currentTimeSpan: document.querySelector('.song-time-state'),
     endTimeSpan: document.querySelector('.song-end-state'),
 }
 
 function addAudioFile(songList, index = control.index) {
-    const audio = document.querySelector('audio');
+    const audio = audioFile.file;
     audio.src = songList[index].url
 }
 
@@ -64,7 +65,6 @@ function changePlayMode() {
 }
 
 function playerHandle() {
-    control.isPlay = !control.isPlay;
     control.isPlay ? audioFile.file.play() : audioFile.file.pause();
     if (control.isPlay) {
         control.play.classList.remove('songStop');
@@ -76,69 +76,81 @@ function playerHandle() {
         control.play.classList.remove('songStart');
         control.albumCover.style.animationPlayState = 'paused';
     }
+    control.isPlay = !control.isPlay;
 }
 
-function showLyric(songList, lrcs, index = control.index) {
-    songInfo.name.innerText = songList[index].name;
-    songInfo.singer.innerText = songList[index].singer;
-    songInfo.album.innerText = songList[index].album;
-    songInfo.source.innerText = songList[index].album;
-    songInfo.albumCover.style.backgroundImage = `url(${songList[index].pic})`;
+function showLyric(songList, lrcs, controlIndex = control.index) {
+    songInfo.name.innerText = songList[controlIndex].name;
+    songInfo.singer.innerText = songList[controlIndex].singer;
+    songInfo.album.innerText = songList[controlIndex].album;
+    songInfo.source.innerText = songList[controlIndex].album;
+    songInfo.albumCover.style.backgroundImage = `url(${songList[controlIndex].pic})`;
     let lyric = songInfo.lyric;
     let template = '';
-    lrcs[index].lyric.forEach(item => {
+    lrcs[controlIndex].lyric.forEach(item => {
         template += `
             <p class='song-lyric-item'>${item.lineLyric}</p>
         `
     })
     lyric.innerHTML = template;
+    let duration = audioFile.duration = Math.round(audioFile.file.duration);
+    songInfo.endTimeSpan.innerText = formatTime(duration);
 }
 
-function lyricAndProgressMove(lrcs, index = control.index) {
+function lyricAndProgressMove() {
     const audio = audioFile.file;
-    audio.addEventListener('timeupdate', () => {
-        const songLyricItem = document.getElementsByClassName('song-lyric-item');
-        let currentTime = audioFile.currentTime = Math.round(audio.currentTime);
-        let duration = audioFile.duration = Math.round(audio.duration);
-        let totalLyricRows = lyric.totalLyricRows = songLyricItem.length;
-        let LyricEle = lyric.ele = songLyricItem[0];
-        let rowsHeight = lyric.rowsHeight = LyricEle.offsetHeight;
-        //歌词移动
-        lrcs[index].lyric.forEach((item, index) => {
-            if (currentTime === item.time) {
-                lyric.currentRows = index;
-                songLyricItem[index].classList.add('song-lyric-item-active');
-                index > 0 && songLyricItem[index - 1].classList.remove('song-lyric-item-active');
-                (index > 5 && index < totalLyricRows - 5) && (songInfo.lyric.style.transform = `translateY(${-rowsHeight * (index - 5)}px)`)
-            }
-        })
-        //进度条移动
-        const progressWrapWidth = control.progressWrap.offsetWidth;
-        const currentBarPOS = currentTime / duration * 100;
-        control.progressBar.style.width = `${currentBarPOS.toFixed(2)}%`;
-        const currentDotPOS = Math.round(currentTime / duration * progressWrapWidth);
-        control.progressDot.style.left = `${currentDotPOS}px`;
+    const controlIndex = control.index;
 
-        songInfo.currentTimeSpan.innerText = formatTime(currentTime);
-        songInfo.endTimeSpan.innerText = formatTime(duration);
-        console.log("🚀 ~ file: index.js ~ line 115 ~ audio.addEventListener ~ progressWrapWidth", progressWrapWidth, currentBarPOS, currentDotPOS)
+    const songLyricItem = document.getElementsByClassName('song-lyric-item');
+    if (songLyricItem.length == 0) return;
+    let currentTime = audioFile.currentTime = Math.round(audio.currentTime);
+    let duration = audioFile.duration = Math.round(audio.duration);
+    let totalLyricRows = lyric.totalLyricRows = songLyricItem.length;
+    let LyricEle = lyric.ele = songLyricItem[0];
+    let rowsHeight = lyric.rowsHeight = LyricEle && LyricEle.offsetHeight;
+    //歌词移动
+    lrcs[controlIndex].lyric.forEach((item, index) => {
+        if (currentTime === item.time) {
+            lyric.currentRows = index;
+            songLyricItem[index].classList.add('song-lyric-item-active');
+            index > 0 && songLyricItem[index - 1].classList.remove('song-lyric-item-active');
+            if (index > 5 && index < totalLyricRows - 5) {
+                // console.log("🚀 ~ file: index.js ~ line 118 ~ lrcs[index].lyric.forEach ~ index", index)
+                songInfo.lyricWrap.scrollTo(0, `${rowsHeight * (index - 5)}`)
+            }
+            // (scrollTo(0,`${rowsHeight * (index - 5)}`))
+            // (index > 5 && index < totalLyricRows - 5) && (songInfo.lyric.style.transform = `translateY(${-rowsHeight * (index - 5)}px)`)
+        }
     })
+    //进度条移动
+    const progressWrapWidth = control.progressWrap.offsetWidth;
+    const currentBarPOS = currentTime / duration * 100;
+    control.progressBar.style.width = `${currentBarPOS.toFixed(2)}%`;
+    const currentDotPOS = Math.round(currentTime / duration * progressWrapWidth);
+    control.progressDot.style.left = `${currentDotPOS}px`;
+
+    songInfo.currentTimeSpan.innerText = formatTime(currentTime);
+    // songInfo.endTimeSpan.innerText = formatTime(duration);
+
 }
 
 function formatTime(time) {
-    let m = Math.round(time / 60);
+    let m = Math.floor(time / 60);
     m = m < 10 ? "0" + m : m;
-    let s = Math.round(time % 60);
+    let s = time % 60;
     s = s < 10 ? "0" + s : s;
     return `${m}:${s}`
 }
 
-function reload(songList, index = control.index) {
+function reload(songList, controlIndex = control.index) {
     const audio = document.querySelector('audio');
-    audio.src = songList[index].url;
+    audio.src = songList[controlIndex].url;
     showLyric(songList, lrcs);
-    control.isPlay ? audioFile.file.play() : audioFile.file.pause();
+    // songInfo.lyric.style.transform = `translateY(0px)`
+    songInfo.lyricWrap.scrollTo(0, 0);
+    audio.play()
 }
+
 
 function prevHandle() {
     const modeIndex = modeControl.index;
@@ -168,15 +180,75 @@ function nextHandle() {
     reload(songList);
 }
 
+function getOffsetLeft(e) {
+    let t = e.offsetTop;
+    let l = e.offsetLeft;
+    while (e = e.offsetParent) {
+        t += e.offsetTop;
+        l += e.offsetLeft;
+    }
+    return l;
+}
+
+function drag(fragBox, wrap) {
+    const wrapWidth = wrap.offsetWidth;
+    const wrapLeft = getOffsetLeft(wrap);
+    const audio = audioFile.file;
+    const duration =audioFile.duration;
+    function dragMove(e) {
+        let disX = e.pageX - wrapLeft;
+        let dotPos;
+        let barPos;
+
+        if (disX < 0) {
+            dotPos = -4;
+            barPos = 0;
+            audio.currentTime = 0;
+        } else if (disX > 0 && disX < wrapWidth) {
+            dotPos = disX;
+            barPos = 100 * (disX/wrapWidth);
+            audio.currentTime = duration * (disX/wrapWidth);
+        } else {
+            dotPos = wrapWidth-4;
+            barPos = 100;
+            audio.currentTime = duration;
+        }
+        control.progressDot.style.left = `${dotPos}px`;
+        control.progressBar.style.width = `${barPos}%`;
+    }
+    fragBox.addEventListener('mousedown', () => {
+        fragBox.style.width = `14px`;
+        fragBox.style.height = `14px`;
+        fragBox.style.top = `-7px`;
+        document.addEventListener('mousemove', dragMove);
+        document.addEventListener('mouseup', () => {
+            document.removeEventListener('mousemove', dragMove);
+            fragBox.style.width = `10px`;
+            fragBox.style.height = `10px`;
+            fragBox.style.top = `-4px`;
+        })
+    });
+
+
+}
+
+function adjustProgress() {
+    const fragBox = control.progressDot;
+    const progressWrap = control.progressWrap
+    drag(fragBox, progressWrap)
+}
+
+addAudioFile(songList);
 function init() {
-    addAudioFile(songList);
     showLyric(songList, lrcs);
     playerHandle();
-    lyricAndProgressMove(lrcs);
 }
-init();
+// init();
+audioFile.file.addEventListener('canplaythrough', init);
 
 control.play.addEventListener('click', playerHandle);
 control.mode.addEventListener('click', changePlayMode);
 control.prev.addEventListener('click', prevHandle);
 control.next.addEventListener('click', nextHandle);
+audioFile.file.addEventListener('timeupdate', lyricAndProgressMove);
+control.progressDot.addEventListener('click', adjustProgress);
