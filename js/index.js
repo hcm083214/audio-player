@@ -3,7 +3,7 @@
  * @Date: 2021-02-21 23:20:42
 <<<<<<< Updated upstream
 <<<<<<< HEAD
- * @LastEditTime: 2021-02-24 00:02:33
+ * @LastEditTime: 2021-02-24 00:05:31
 =======
  * @LastEditTime: 2021-02-24 00:00:39
 >>>>>>> gh-pages
@@ -250,10 +250,7 @@ function adjustProgressByDrag() {
     drag(fragBox, progressWrap)
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> gh-pages
 function adjustProgressByClick(e) {
 
     const wrap = control.progressWrap;
