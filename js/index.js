@@ -2,7 +2,11 @@
  * @Author: 黄灿民
  * @Date: 2021-02-21 23:20:42
 <<<<<<< Updated upstream
+<<<<<<< HEAD
  * @LastEditTime: 2021-02-24 00:02:33
+=======
+ * @LastEditTime: 2021-02-24 00:00:39
+>>>>>>> gh-pages
 =======
  * @LastEditTime: 2021-02-23 23:52:55
 >>>>>>> Stashed changes
@@ -196,28 +200,10 @@ function getOffsetLeft(e) {
 function drag(fragBox, wrap) {
     const wrapWidth = wrap.offsetWidth;
     const wrapLeft = getOffsetLeft(wrap);
-    const audio = audioFile.file;
-    const duration =audioFile.duration;
+
     function dragMove(e) {
         let disX = e.pageX - wrapLeft;
-        let dotPos;
-        let barPos;
-
-        if (disX < 0) {
-            dotPos = -4;
-            barPos = 0;
-            audio.currentTime = 0;
-        } else if (disX > 0 && disX < wrapWidth) {
-            dotPos = disX;
-            barPos = 100 * (disX/wrapWidth);
-            audio.currentTime = duration * (disX/wrapWidth);
-        } else {
-            dotPos = wrapWidth-4;
-            barPos = 100;
-            audio.currentTime = duration;
-        }
-        control.progressDot.style.left = `${dotPos}px`;
-        control.progressBar.style.width = `${barPos}%`;
+        changeProgressBarPos(disX, wrapWidth)
     }
     fragBox.addEventListener('mousedown', () => {
         fragBox.style.width = `14px`;
@@ -235,13 +221,39 @@ function drag(fragBox, wrap) {
 
 }
 
-function adjustProgress() {
+function changeProgressBarPos(disX, wrapWidth) {
+    const audio = audioFile.file
+    const duration = audioFile.duration
+    let dotPos
+    let barPos
+
+    if (disX < 0) {
+        dotPos = -4
+        barPos = 0
+        audio.currentTime = 0
+    } else if (disX > 0 && disX < wrapWidth) {
+        dotPos = disX
+        barPos = 100 * (disX / wrapWidth)
+        audio.currentTime = duration * (disX / wrapWidth)
+    } else {
+        dotPos = wrapWidth - 4
+        barPos = 100
+        audio.currentTime = duration
+    }
+    control.progressDot.style.left = `${dotPos}px`
+    control.progressBar.style.width = `${barPos}%`
+}
+
+function adjustProgressByDrag() {
     const fragBox = control.progressDot;
     const progressWrap = control.progressWrap
     drag(fragBox, progressWrap)
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> gh-pages
 function adjustProgressByClick(e) {
 
     const wrap = control.progressWrap;
@@ -267,5 +279,6 @@ control.mode.addEventListener('click', changePlayMode);
 control.prev.addEventListener('click', prevHandle);
 control.next.addEventListener('click', nextHandle);
 audioFile.file.addEventListener('timeupdate', lyricAndProgressMove);
-control.progressDot.addEventListener('click', adjustProgress);
+control.progressDot.addEventListener('click', adjustProgressByDrag);
 audioFile.file.addEventListener('ended', nextHandle);
+control.progressWrap.addEventListener('click', adjustProgressByClick)
