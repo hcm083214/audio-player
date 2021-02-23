@@ -2,7 +2,7 @@
  * @Author: 黄灿民
  * @Date: 2021-02-21 23:20:42
 <<<<<<< Updated upstream
- * @LastEditTime: 2021-02-23 23:11:08
+ * @LastEditTime: 2021-02-24 00:02:33
 =======
  * @LastEditTime: 2021-02-23 23:52:55
 >>>>>>> Stashed changes
@@ -241,8 +241,7 @@ function adjustProgress() {
     drag(fragBox, progressWrap)
 }
 
-<<<<<<< Updated upstream
-=======
+
 function adjustProgressByClick(e) {
 
     const wrap = control.progressWrap;
@@ -252,7 +251,6 @@ function adjustProgressByClick(e) {
     changeProgressBarPos(disX, wrapWidth)
 }
 
->>>>>>> Stashed changes
 addAudioFile(songList);
 function init() {
     showLyric(songList, lrcs);
