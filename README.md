@@ -47,11 +47,20 @@ const songInfo = { // 存放歌曲信息的DOM容器
 
 ## 播放控制
 
-功能：控制音乐的播放和暂停及相应图标修改
+功能：控制音乐的播放和暂停，上一首，下一首，播放完成及相应图标修改
 
-所用API：`audio.play()` 和 `audio.pause()`
+audio所用API：`audio.play()` 和 `audio.pause()`和`audio ended事件`
 
 ```js
+// 音乐的播放和暂停，上一首，下一首控制
+control.play.addEventListener('click',()=>{
+    control.isPlay = !control.isPlay;
+    playerHandle();
+} );
+control.prev.addEventListener('click', prevHandle);
+control.next.addEventListener('click', nextHandle);
+audioFile.file.addEventListener('ended', nextHandle);
+
 function playerHandle() {
     const play = control.play;
     control.isPlay ? audioFile.file.play() : audioFile.file.pause();
@@ -67,17 +76,41 @@ function playerHandle() {
     }
 }
 
-control.play.addEventListener('click',()=>{
-    control.isPlay = !control.isPlay;
-    playerHandle();
-} );
+
+function prevHandle() {    // 根据播放模式重新加载歌曲
+    const modeIndex = modeControl.index;
+    const songListLens = songList.length;
+    if (modeIndex == 0) {//顺序播放
+        let index = --control.index;
+        index == -1 ? (index = songListLens - 1) : index;
+        control.index = index % songListLens;
+    } else if (modeIndex == 1) {//随机播放
+        const randomNum = Math.random() * (songListLens - 1);
+        control.index = Math.round(randomNum);
+    } else if (modeIndex == 2) {//单曲
+    }
+    reload(songList);
+}
+
+function nextHandle() {
+    const modeIndex = modeControl.index;
+    const songListLens = songList.length;
+    if (modeIndex == 0) {//顺序播放
+        control.index = ++control.index % songListLens;
+    } else if (modeIndex == 1) {//随机播放
+        const randomNum = Math.random() * (songListLens - 1);
+        control.index = Math.round(randomNum);
+    } else if (modeIndex == 2) {//单曲
+    }
+    reload(songList);
+}
 ```
 
 ## 播放进度条控制
 
 功能：实时更新播放进度，点击进度条调整歌曲播放进度
 
-所用API：`audio timeupdate`事件，`audio.currentTime`
+audio所用API：`audio timeupdate`事件，`audio.currentTime`
 
 ```js
 // 播放进度实时更新
@@ -181,7 +214,7 @@ function adjustProgressByClick(e) {
 
 功能：根据播放进度，实时更新歌词显示，并高亮当前歌词（通过添加样式）
 
-所用API：`audio timeupdate`事件，`audio.currentTime`
+audio所用API：`audio timeupdate`事件，`audio.currentTime`
 
 ```js
 // 歌词显示实时更新
@@ -215,9 +248,22 @@ function lyricAndProgressMove() {
 
 ## 播放模式设置
 
+功能：点击跳转播放模式，并修改相应图标
 
+audio所用API：无
 
 ```js
+// 播放模式设置
+control.mode.addEventListener('click', changePlayMode);
 
+function changePlayMode() {
+    modeControl.index = ++modeControl.index % 3;
+    const mode = control.mode;
+    modeControl.index === 0 ?
+        mode.setAttribute("class", "playerIcon songCycleOrder") :
+        modeControl.index === 1 ?
+            mode.setAttribute("class", "playerIcon songCycleRandom ") :
+            mode.setAttribute("class", "playerIcon songCycleOnly")
+}
 ```
 
